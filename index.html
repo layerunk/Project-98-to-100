@@ -15,6 +15,8 @@
 
     <center>
 
+        <a href="" id="anc" download = "selfie.png" ></a>
+
         <h1 class = "titol">Collage Web App</h1>
 
         <br><br>
@@ -23,19 +25,21 @@
 
         <br><br>
 
-        <h3 class = "titol">Click on the START button and say "CLICK MY PICTURE" and click ALLOW on the Popup. Scroll down to see your PHOTO!</h3>
+        <h3 class = "titol">Click on the START button and say "TAKE MY SELFIE" and click ALLOW on the Popup. Scroll down to see your PHOTO!</h3>
 
         <br><br>
 
-        <button id="start" class="btn btn-warning" onclick = "save()">START</button> 
+        <button id="start" class="btn btn-warning" onclick = "start()">START</button> 
 
         <br><br>
+
+        <textarea readonly = "true" class = "form-control" id = "textbox"></textarea>
 
         <label></label>
 
         <br><br>
 
-        <div id="cam"></div>
+        <div id="camera"></div>
 
         <br><br>
 
@@ -44,20 +48,21 @@
         <br><br>
 
         <div id ="resultdis">
-            <div id = 'result1'><img src = "pjouo.webp"></div>
+            <div id = 'result1'></div>
 
             <br><br>
 
-            <div id = 'result2'><img src ="pjouo.webp"></div>
+            <div id = 'result2'></div>
             
             <br><br>
 
-            <div id = 'result3'><img src = "pjouo.webp"></div>
+            <div id = 'result3'></div>
         </div>
 
         <div id="footer"></div>
 
     </center>
+    <script src="inex.js"></script>
 </body>
 
 </html>
