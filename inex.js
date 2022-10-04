@@ -30,14 +30,14 @@ function speak(){
     Webcam.attach(camera);
 
 
-    var img_id = "sel1";
-  
-    var speech = "Clicking selfies in next 5 seconds";
-    var audiofile = new SpeechSynthesisUtterance(speech);
-    synth.speak(audiofile);
-    texttospeech.speak(audiofile);
+
 
     setTimeout(function(){
+        var img_id = "sel1";
+        var synth = window.speechSynthesis;
+        var speech = "Clicking selfies in next 5 seconds";
+        var audiofile = new SpeechSynthesisUtterance(speech);
+        synth.speak(audiofile);
         clickpic();
         save();
     }, 1000);
