@@ -25,40 +25,35 @@ if(content == "take my selfie"){
 
 function speak(){
 
-
     var camera = document.getElementById("camera"); 
     Webcam.attach(camera);
 
 
-
+    var synth = window.speechSynthesis;
+    var speech = "Clicking selfies in next 5 seconds";
+    var audiofile = new SpeechSynthesisUtterance(speech);
+    synth.speak(audiofile);
+    img_id = "sel1";
 
     setTimeout(function(){
-        var img_id = "sel1";
-        var synth = window.speechSynthesis;
-        var speech = "Clicking selfies in next 5 seconds";
-        var audiofile = new SpeechSynthesisUtterance(speech);
-        synth.speak(audiofile);
         clickpic();
-        save();
     }, 1000);
 
     setTimeout(function(){
-        var img_id = "sel2";
-        clickpic();       
-        save();
+
+        clickpic();    
     }, 3500);
 
     setTimeout(function(){
-        var img_id = "sel3";
+
         clickpic();       
-        save();
     }, 5000);
 
 } 
 
 Webcam.set({
-    width: 300,
-    height: 500,
+    width: 400,
+    height: 300,
     image_format: 'png',
     png_quality: 120
 });
@@ -68,28 +63,46 @@ Webcam.set({
 function clickpic(){
     Webcam.snap(function(pica){
         if(img_id == "sel1"){
-            picu = document.getElementById("pic1").innerHTML = '<img id = "picture1" src = "' + pica +'">';
-            document.getElementById("result1").innerHTML = picu; 
+         document.getElementById("result1").innerHTML = '<img id = "picture1" src = "' + pica +'">';
+         img_id = "sel2";
         }
 
-        if(img_id == "sel12"){
-            picu = document.getElementById("pic2").innerHTML = '<img id = "picture2" src = "' + pica +'">';
-            document.getElementById("result2").innerHTML = picu; 
+        if(img_id == "sel2"){
+            document.getElementById("result2").innerHTML = '<img id = "picture2" src = "' + pica +'">';
+            img_id = "sel3";
         }
 
         if(img_id == "sel3"){
-            picu = document.getElementById("pic3").innerHTML = '<img id = "picture3" src = "' + pica +'">';
-            document.getElementById("result3").innerHTML = picu; 
+            document.getElementById("result3").innerHTML = '<img id = "picture3" src = "' + pica +'">';
         }
 
     });
 }
 
-function save(){
+function save1(){
     var textarea = document.getElementById("anc");
-    var picture = document.getElementById("picture").src;
+    var picture = document.getElementById("picture1").src;
 
     textarea.href = picture;
 
     textarea.click();
 }
+
+function save2(){
+    var textarea = document.getElementById("anc");
+    var picture = document.getElementById("picture2").src;
+
+    textarea.href = picture;
+
+    textarea.click();
+}
+
+function save3(){
+    var textarea = document.getElementById("anc");
+    var picture = document.getElementById("picture3").src;
+
+    textarea.href = picture;
+
+    textarea.click();
+}
+
